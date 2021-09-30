@@ -10,28 +10,28 @@ class User extends ActiveRecord { // 2. 定义一个ORM实体类
 }
 
 // 3.1 创建一条数据方式1： 实例化并save
-// const yuchi = new User({
-//     userName: 'yuchi',
-//     password: '123456',
-//     nickName: '鱼翅'
-// });
+const yuchi = new User({
+    userName: 'yuchi',
+    password: '123456',
+    nickName: '鱼翅'
+});
 
-// yuchi.save();
+yuchi.save();
 
 // 3.2 创建一条数据方式2： 使用create方法
-// User.create({
-//     userName: 'xiaoming',
-//     password: '11111',
-//     nickName: '小明'
-// });
+User.create({
+    userName: 'xiaoming',
+    password: '11111',
+    nickName: '小明'
+});
 
 // 4. 查看虚拟的数据库数据 
-// console.log(DB);
+console.log(DB);
 
 // 5. 通过属性进行查询
-// console.log(User.findByUserName('yuchi'));
-// console.log(User.findByNickName('小明'));
-// console.log(User.findByPassword('11111'));
+console.log(User.findByUserName('yuchi'));
+console.log(User.findByNickName('小明'));
+console.log(User.findByPassword('11111'));
 
 class Book extends ActiveRecord { }
 
