@@ -17,7 +17,7 @@ const ActiveRecord = new Proxy(BaseActiveRecord, {
 
         return new Proxy(nativeObj, {
             get: function (obj, prop) {
-                if (Reflect.has(obj, prop)) return obj[prop];
+                if (Reflect.has(obj, prop)) return Reflect.get(...arguments);
                 if (prop !== 'save') throw new Error(`${prop} is not a function!`)
 
                 return function () {
@@ -29,7 +29,7 @@ const ActiveRecord = new Proxy(BaseActiveRecord, {
         });
     },
     get: function (obj, prop, receiver) {
-        if (Reflect.has(obj, prop)) return obj[prop];
+        if (Reflect.has(obj, prop)) return Reflect.get(...arguments);
 
         const tableName = receiver.prototype.constructor.name.toLowerCase() + 's';
         switch (prop) {
